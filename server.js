@@ -26,8 +26,11 @@ app.get('/', (req,res) => {
     res.json(users);
 })
 
+app.use(express.static(__dirname + '/client/build'));
+
 app.get('/client', function(req, res){
-    res.sendFile(__dirname + '/client/public/index.html');
+    res.sendFile(__dirname + '/client/build/index.html');
+    console.log('Ii`s working');
     });
 
 //Function for checking https-redirecting-ignoring 
