@@ -2,6 +2,8 @@ var express = require('express');
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
+var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
+
 
 var app = express();
 
@@ -13,7 +15,7 @@ var certificate = fs.readFileSync('improveyourself.crt', 'utf8');
 
 var credentials = {key: privateKey, cert: certificate};
 
-
+app.use(redirectToHTTPS([/improveyourself.ru:(\d{4})/], [/\/insecure/], 301));
 
 app.get('/', (req,res) => {
     const users = [
@@ -24,12 +26,12 @@ app.get('/', (req,res) => {
     res.json(users);
 })
 
+app.get('/insecure', function (req, res) {
+    res.send('Dangerous!');
+  });
+
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
-
-httpServer.get('*', function(req, res) {  
-    res.redirect('https://' + req.headers.host + req.url);
-})
 
 httpServer.listen(port);
 httpsServer.listen(sport);
