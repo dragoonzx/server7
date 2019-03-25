@@ -20,18 +20,18 @@ var httpsServer = https.createServer(credentials, app);
 httpServer.listen(port);
 httpsServer.listen(sport);
 
-app.all('*', ensureSecure);
-
-function ensureSecure(req, res, next){
-    if(req.secure){
-      return next();
-    };
-    res.redirect('https://' + req.hostname + req.url);
-}
+//hz kak eto rabotaet i rabotaet li voobshe
+app.use(function(request, response){
+    if(!request.secure){
+      response.redirect("https://" + request.headers.host + request.url);
+    }
+  });
+//hz zakonchen
 
 app.get('/', (req,res) => {
     const users = [
-      {id:1, name:'Erzhan', action:"Vstavai blyad"}  
+      {id:1, name:'Erzhan', action:"Vstavai blyad"},
+      {id:2, name:'oxxxymiron', action:'sing'}
     ]
 
     res.json(users);
