@@ -1,0 +1,30 @@
+{
+  "name": "sslserver",
+  "version": "1.0.0",
+  "description": "https server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragoonzx/server7.git"
+  },
+  "author": "Max",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dragoonzx/server7/issues"
+  },
+  "homepage": "https://github.com/dragoonzx/server7#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
