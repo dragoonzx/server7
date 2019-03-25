@@ -6,9 +6,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {timestamp : 'no timestamp yet'};
-    subscribeToTimer((err, timestamp) => this.setState({
-      timestamp
-    }))
+    subscribeToTimer((err, timestamp) => this.subscribeToTimer.bind(this))
   };
 
   render() {
