@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import { subscribeToTimer } from './api';
+
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {timestamp : 'no timestamp yet'};
+    this.subscribeToTimer = this.subscribeToTimer.bind(this);
+  };
+
   render() {
     return (
       <div>
-        <h1>Erzhan vstavai!!!</h1>
-        <p>I`m working developing as much as I want and when I`m done it`s building time!!!</p>
+        <h1>This is the timer value: {this.state.timestamp}</h1>
       </div>
     );
   }

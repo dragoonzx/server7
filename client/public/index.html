@@ -22,87 +22,15 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-
-      var socket = io.connect('https://improveyourself.ru/client');
-      var info = '';
-      function changeInfo(value){
-      info = value;
-      };
-      var result = '';
-      function clickMe(){
-        socket = io.connect('https://improveyourself.ru/client');
-      socket.emit('eventServer', {info: info, time: (new Date()).valueOf()});
-      
-      socket.on('eventClient', function (data) {
-      console.log('client');
-      console.log(data);
-      for (var i = 0; i < data.info.length; i++) {
-        if (data.info[i].info != undefined){
-          result = result +'\n' + data.info[i].info;
-        }
-      
-      }
-      alert('Результат: '+ result);
-      socket.disconnect();
-      socket.on('disconnect',function(){
-      console.log('user disconnected')
-      })
-      });
-      
-      };
-      
-      </script>
-
+    
     <title>De Good App</title>
-    <style>
-body{
-background-color: #f0040f;
-}
-code {
-font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-monospace;
-}
-
-#go{
-border-radius: 50%;
-width: 50vw;
-height: 50vw;
-position: absolute;
-background: #f0040f;
-top: 20%;
-left: 25%;
-box-shadow: 0 0 10px rgba(0,0,0,0.5);
-font-size: 4vw;
-color: white;
-outline: none;
-border: 0px;
-}
-#go:active{
-box-shadow:  0 0 0px rgba(0,0,0,0.5);
-background: #c00000;
-}
-#input{
-outline: none;
-font-size: 20px;
-border-radius: 4px;
-border: 1px solid #e6e6e6;
-height: 30px;
-width: 70%;
-position: absolute;
-top: 20px;
-left: 15%;
-}
-</style>
+  
   </head>
   <body>
     
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <input id='input' type="text" name="info" onchange="changeInfo(this.value)" placeholder="Введите информацию">
-   <img src='https://pp.userapi.com/c850536/v850536667/e50c6/PhjeQ_j84dQ.jpg' id='go' onclick="clickMe()"/>
-
+   
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
