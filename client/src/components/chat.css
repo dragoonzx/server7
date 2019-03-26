@@ -1,0 +1,33 @@
+#chatwindow{
+    position:relative;
+    height:400px;
+    width:800px; /* if you wish to use all of your space, use
+    position:absolute; top:0;left:0;right:0;bottom:0;
+    or drop the chatdwindow div */
+}
+#messagewindow, #inputcontainer{
+    position:absolute;
+    left:200px;
+    right:0;
+    border:1px solid #000;
+}
+#messagewindow{   
+    overflow:auto;
+    top:0;
+    bottom:3em;
+}
+#inputcontainer{
+    display:block;
+    bottom:0;
+    height:1em;
+    padding:.5em;
+    margin-top:1em;
+}
+#subm{
+    display:block;
+    margin:0;
+}
+
+#inputcontainer > p{
+    margin:0;
+}
