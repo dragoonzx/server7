@@ -19,7 +19,7 @@ class Message extends Component {
   
   render() {
     return (
-    <ul>{this.state.messages.slice(-10).map((msg,idx) => <li style={{listStyleType:'none'}} key={'msg-' +idx}>{msg}</li>)}</ul>
+    <ul>{this.state.messages.slice(-10).map((msg,idx) => <li style={{listStyleType:'none'}} key={'msg-' +idx}>{idx + ' '}{msg}</li>)}</ul>
      );
   }
 }
