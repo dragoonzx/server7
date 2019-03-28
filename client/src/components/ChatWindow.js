@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import './chat.css'
+import Message from './Message';
 
 class ChatWindow extends Component {
   render() {
     return (
       <div>
-        <div id="chatwindow">
             <div id="messagewindow">
-                messages
+                <Message />
              </div>
-        <div id="inputcontainer">
-        <input id="inputcontainer" type="text" placeholder='your message'></input>
-        <input id="subm" type="submit" value="Отправить" />
-        </div>
-        </div>
+             <div id="send">
+                <input  type="text" placeholder='your message'></input>
+                <input type="submit" value="Отправить" />
+            </div>
       </div>
      );
   }

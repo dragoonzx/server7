@@ -15,7 +15,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://improveyourself.ru",
   "eslintConfig": {
     "extends": "react-app"
   },

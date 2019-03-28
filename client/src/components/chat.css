@@ -9,12 +9,18 @@
     position:absolute;
     left:200px;
     right:0;
+    width:600px;
+    height:400px;
     border:1px solid #000;
 }
 #messagewindow{   
     overflow:auto;
-    top:0;
+    top:50px;
     bottom:3em;
+}
+#send{
+    padding-top:200px;
+    padding-left:200px;
 }
 #inputcontainer{
     display:block;
