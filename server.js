@@ -21,18 +21,22 @@ var httpsServer = https.createServer(credentials, app);
 expressWs(app, httpsServer);
 var expressWs = expressWs(express());
 var aWss = expressWs.getWss('/');
-
+var clients = {};
 app.ws('/', (ws, req) => {
-   
+      
+  var id = Math.random();
+  clients[id] = ws;
+  console.log('new connection '+id);
+      
   ws.on('message', msg => {
-      ws.send(msg)
-      aWss.clients.forEach(function (client) {
-        client.send(msg);
-      });
+      for (var key in clients) {
+        clients[key].send(msg);
+      }
       console.log(msg)
   })
   ws.on('close', () => {
       console.log('WebSocket was closed')
+      delete clients[id];
   })
 })
 

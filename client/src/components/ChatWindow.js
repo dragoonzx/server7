@@ -11,6 +11,16 @@ class ChatWindow extends Component {
     this.onMessageChange = this.onMessageChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  componentDidMount(){
+    this.state.socket.onopen = () => {
+      this.state.socket.send('YOU CAN CHAT NOW!');
+    }
+    this.state.socket.onmessage = evt => {
+      this.setState({
+        messages: this.state.messages.concat([evt.data])
+      })
+    };
+  }
   onSubmit(event) {
     var outgoingMessage = this.state.message;
     this.state.socket.send(outgoingMessage);
