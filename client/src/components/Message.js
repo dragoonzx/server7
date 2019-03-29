@@ -4,18 +4,20 @@ class Message extends Component {
   state = {
     messages:[]
   }
-
+  
   componentDidMount(){
-    this.connection = new WebSocket('wss://echo.websocket.org');
+    this.connection = new WebSocket('wss://localhost');//wss://echo.websocket.org
     this.connection.onmessage = evt => {
       this.setState({
         messages: this.state.messages.concat([evt.data])
       })
     };
-
-    setInterval( _ =>{
+    this.connection.onopen = () => {
+      this.connection.send('VI OTKRILI ETO')
+    }};
+    /*setInterval( _ =>{
       this.connection.send('ERZHAN VSTAVAI')}, 2000)
-    };
+    };*/
   
   render() {
     return (
