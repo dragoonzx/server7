@@ -7,7 +7,7 @@ import Message from './Message';
 class ChatWindow extends Component {
   constructor(props){
     super(props);
-    this.state = {socket: new WebSocket('wss://localhost'), message:'', messages:[]};
+    this.state = {socket: new WebSocket('wss://improveyourself.ru'), message:'', messages:[]};
     this.onMessageChange = this.onMessageChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }

@@ -6,7 +6,7 @@ class Message extends Component {
   }
   
   componentDidMount(){
-    this.connection = new WebSocket('wss://localhost');//wss://echo.websocket.org
+    this.connection = new WebSocket('wss://improveyourself.ru');//wss://echo.websocket.org
     this.connection.onmessage = evt => {
       this.setState({
         messages: this.state.messages.concat([evt.data])
