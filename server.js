@@ -26,6 +26,9 @@ app.ws('/', (ws, req) => {
    
   ws.on('message', msg => {
       ws.send(msg)
+      aWss.clients.forEach(function (client) {
+        client.send(msg.data);
+      });
       console.log(msg)
   })
   ws.on('close', () => {
