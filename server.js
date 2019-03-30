@@ -22,6 +22,7 @@ expressWs(app, httpsServer);
 var expressWs = expressWs(express());
 var aWss = expressWs.getWss('/');
 var clients = {};
+
 app.ws('/', (ws, req) => {
       
   var id = Math.random();
