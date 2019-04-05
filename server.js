@@ -61,12 +61,11 @@ app.get("/", (req, res) => {
 });
 
 app.use(express.static(__dirname + "/client/build"));
+app.use(express.static(__dirname + "/maps/build"));
 
 app.get("/client", function(req, res) {
   res.sendFile(__dirname + "/client/build/index.html");
 });
-
-app.use(express.static(__dirname + "/maps/build"));
 
 app.get("/maps", function(req, res) {
   res.sendFile(__dirname + "/maps/build/index.html");
