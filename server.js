@@ -3,7 +3,7 @@ var fs = require('fs')
 var http = require('http')
 var https = require('https')
 // var redirectToHTTPS = require("express-http-to-https").redirectToHTTPS;
-var expressWs = require('express-ws')
+// var expressWs = require('express-ws')
 
 var app = express()
 
@@ -18,27 +18,27 @@ var credentials = { key: privateKey, cert: certificate }
 var httpServer = http.createServer(app)
 var httpsServer = https.createServer(credentials, app)
 
-expressWs(app, httpsServer)
-var expressWs = expressWs(express())
-var aWss = expressWs.getWss('/')
-var clients = {}
+// expressWs(app, httpsServer)
+// var expressWs = expressWs(express())
+// var aWss = expressWs.getWss('/')
+// var clients = {}
 
-app.ws('/', (ws, req) => {
-  var id = Math.random()
-  clients[id] = ws
-  console.log('new connection ' + id)
+// app.ws('/', (ws, req) => {
+//   var id = Math.random()
+//   clients[id] = ws
+//   console.log('new connection ' + id)
 
-  ws.on('message', msg => {
-    for (var key in clients) {
-      clients[key].send(msg)
-    }
-    console.log(msg)
-  })
-  ws.on('close', () => {
-    console.log('WebSocket was closed')
-    delete clients[id]
-  })
-})
+//   ws.on('message', msg => {
+//     for (var key in clients) {
+//       clients[key].send(msg)
+//     }
+//     console.log(msg)
+//   })
+//   ws.on('close', () => {
+//     console.log('WebSocket was closed')
+//     delete clients[id]
+//   })
+// })
 
 //https-redirecting(1:ignoring with ports,2:ignoring routes)
 // app.use(redirectToHTTPS([/improveyourself.ru:(\d{4})/], [/\/insecure/], 301));
