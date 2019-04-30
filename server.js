@@ -7,8 +7,8 @@ var https = require('https')
 
 var app = express()
 
-var port = 80
-var sport = 443
+var port = 8000
+var sport = 4430
 
 var privateKey = fs.readFileSync('improveyourself.key', 'utf8')
 var certificate = fs.readFileSync('improveyourself.crt', 'utf8')
